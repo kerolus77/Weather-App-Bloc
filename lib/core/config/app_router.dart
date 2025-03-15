@@ -8,7 +8,7 @@ import 'package:weather_app/features/weather_details/presentation/view/weather_d
 
 import '../../features/home/presentation/view/home_screen.dart';
 import '../../features/splash/presentaion/view/splash_screen.dart';
-import '../../features/weather_details/presentation/view_model/cubit/Weather_details_cubit.dart';
+import '../../features/weather_details/presentation/view_model/bloc/weather_details_bloc.dart';
 import '../services/services_locator/services_locator.dart';
 
 class AppRouting {
@@ -50,7 +50,7 @@ class AppRouter {
       case AppRouting.weatherDetailsScreen:
         return animateRouteBuilder(
           BlocProvider(
-            create: (context) => sl<WeatherDetailsCubit>(param1: args),
+            create: (context) => sl<WeatherDetailsBloc>(param1: args),
             child: WeatherDetailsScreen(),
           ),
           pageRouteAnimation: PageRouteAnimation.SlideBottomTop,
