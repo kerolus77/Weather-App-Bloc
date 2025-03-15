@@ -72,7 +72,7 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
 
   Color getWeatherColor(String condition) {
     print('condition: $condition');
-    switch (condition.toLowerCase()) {
+    switch (condition.toLowerCase().trim()) {
       case 'sunny':
         return AppColors.yellow;
       case 'moderate rain at times':
@@ -82,9 +82,11 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
       case 'clear':
         return Colors.lightBlue;
       case 'patchy rain nearby':
-        return Colors.grey;
+        return const Color.fromARGB(255, 87, 87, 87);
       case 'patchy light snow':
         return Colors.white;
+      case 'overcast':
+        return const Color.fromARGB(255, 185, 165, 165);
 
       default:
         return Colors.white;
