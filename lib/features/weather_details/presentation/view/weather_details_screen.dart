@@ -76,20 +76,20 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
       case 'sunny':
         return AppColors.yellow;
       case 'moderate rain at times':
-        return Colors.grey.shade800;
+        return AppColors.grayShade800;
       case 'partly cloudy':
-        return Colors.blueGrey;
+        return AppColors.blueGrey;
       case 'clear':
-        return Colors.lightBlue;
+        return AppColors.lightBlue;
       case 'patchy rain nearby':
-        return const Color.fromARGB(255, 87, 87, 87);
+        return AppColors.darkGrey;
       case 'patchy light snow':
-        return Colors.white;
+        return AppColors.whiteColor;
       case 'overcast':
-        return const Color.fromARGB(255, 185, 165, 165);
+        return AppColors.lightRed;
 
       default:
-        return Colors.white;
+        return AppColors.whiteColor;
     }
   }
 }
