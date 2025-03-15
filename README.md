@@ -71,7 +71,11 @@ This app leverages several powerful packages:
    ```
 
 ## Demo Video
-[Watch the demo](#)
+
+
+https://github.com/user-attachments/assets/f81b1285-b380-4bdc-a5c9-641e2385f934
+
+
 
 ## Download APK
 [Download APK](https://drive.google.com/file/d/1twzblN6LaTEYpsW-o0DwTlOESSYCvuzy/view?usp=sharing)
