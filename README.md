@@ -55,11 +55,11 @@ This app leverages several powerful packages:
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/weather_app.git
+   https://github.com/kerolus77/Weather-App-Bloc.git
    ```
 2. Navigate to the project directory:
    ```sh
-   cd weather_app
+   cd Weather-App-Bloc
    ```
 3. Install dependencies:
    ```sh
