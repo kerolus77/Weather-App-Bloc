@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:weather_app/features/weather_details/presentation/view_model/cubit/Weather_details_cubit.dart';
 
+import '../../view_model/bloc/weather_details_bloc.dart';
 import 'hourly_forecat_item.dart';
 
 class HourlyForecastList extends StatefulWidget {
@@ -24,7 +24,7 @@ class _HourlyForecastListState extends State<HourlyForecastList> {
   }
 
   void _scrollToCurrentHour() {
-    final cubit = context.read<WeatherDetailsCubit>();
+    final cubit = context.read<WeatherDetailsBloc>();
     final currentHour = DateTime.now().hour;
 
     final hoursList = cubit.weatherData?.forecast?.forecastday?[0].hour ?? [];
@@ -43,9 +43,9 @@ class _HourlyForecastListState extends State<HourlyForecastList> {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<WeatherDetailsCubit>();
+    final cubit = context.read<WeatherDetailsBloc>();
     return Flexible(
-      child: BlocBuilder<WeatherDetailsCubit, WeatherDetailsState>(
+      child: BlocBuilder<WeatherDetailsBloc, WeatherDetailsState>(
         builder: (context, state) {
           return ListView.builder(
             controller: _scrollController,

@@ -4,10 +4,10 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:weather_app/core/presentation/view/widget/custom_image_view.dart';
 import 'package:weather_app/core/utils/app_colors.dart';
 import 'package:weather_app/core/utils/assets.dart';
-import 'package:weather_app/features/weather_details/presentation/view_model/cubit/Weather_details_cubit.dart';
 
 import '../../../../core/presentation/view/widget/custom_app_bar.dart';
 import '../../../../core/utils/app_strings.dart';
+import '../view_model/bloc/weather_details_bloc.dart';
 import 'widget/current_weather_widget.dart';
 import 'widget/hourly_forecast_list.dart';
 import 'widget/weather_details_shimmer.dart';
@@ -24,22 +24,18 @@ class WeatherDetailsScreen extends StatefulWidget {
 class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
   @override
   void initState() {
-    context.read<WeatherDetailsCubit>().getWeatherData();
+    context.read<WeatherDetailsBloc>().add(FetchWeatherDetailsEvent());
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<WeatherDetailsCubit>();
-    return BlocBuilder<WeatherDetailsCubit, WeatherDetailsState>(
+    final cubit = context.read<WeatherDetailsBloc>();
+    return BlocBuilder<WeatherDetailsBloc, WeatherDetailsState>(
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: getWeatherColor(context
-                  .read<WeatherDetailsCubit>()
-                  .showWeatherData
-                  ?.condition
-                  ?.text ??
-              ''),
+          backgroundColor:
+              getWeatherColor(cubit.showWeatherData?.condition?.text ?? ''),
           appBar: CustomAppBar(
             title: AppStrings.appName,
           ),

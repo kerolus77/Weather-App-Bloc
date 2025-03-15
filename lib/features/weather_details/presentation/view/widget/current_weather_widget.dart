@@ -7,7 +7,7 @@ import 'package:weather_app/core/utils/app_colors.dart';
 import 'package:weather_app/core/utils/app_strings.dart';
 
 import '../../../../../core/themes/text_styles.dart';
-import '../../view_model/cubit/Weather_details_cubit.dart';
+import '../../view_model/bloc/weather_details_bloc.dart';
 import 'weather_info_item.dart';
 
 class CurrentWeatherWidget extends StatelessWidget {
@@ -15,8 +15,8 @@ class CurrentWeatherWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<WeatherDetailsCubit>();
-    return BlocBuilder<WeatherDetailsCubit, WeatherDetailsState>(
+    final cubit = context.read<WeatherDetailsBloc>();
+    return BlocBuilder<WeatherDetailsBloc, WeatherDetailsState>(
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -66,13 +66,16 @@ class CurrentWeatherWidget extends StatelessWidget {
                               ''),
                       WeatherInfoItem(
                           label: AppStrings.humidity,
-                          value: cubit.showWeatherData?.humidity.toString()??''),
+                          value:
+                              cubit.showWeatherData?.humidity.toString() ?? ''),
                       WeatherInfoItem(
                           label: AppStrings.pressure,
-                          value: cubit.showWeatherData?.pressureMb.toString()??''),
+                          value: cubit.showWeatherData?.pressureMb.toString() ??
+                              ''),
                       WeatherInfoItem(
                           label: AppStrings.wind,
-                          value: cubit.showWeatherData?.windKph.toString()??''),
+                          value:
+                              cubit.showWeatherData?.windKph.toString() ?? ''),
                       WeatherInfoItem(
                           label: AppStrings.visible,
                           value: cubit.weatherData?.forecast?.forecastday?[0]
@@ -82,7 +85,8 @@ class CurrentWeatherWidget extends StatelessWidget {
                     ],
                   ),
                   CustomImageView(
-                    url: "https:${cubit.showWeatherData?.condition?.icon ?? ''}",
+                    url:
+                        "https:${cubit.showWeatherData?.condition?.icon ?? ''}",
                     height: 100.h,
                   )
                 ],

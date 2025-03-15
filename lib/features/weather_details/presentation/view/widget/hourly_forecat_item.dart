@@ -7,7 +7,7 @@ import 'package:weather_app/core/themes/text_styles.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../data/models/weather_response_model/hour.dart';
-import '../../view_model/cubit/Weather_details_cubit.dart';
+import '../../view_model/bloc/weather_details_bloc.dart';
 
 class HourlyForecastItem extends StatelessWidget {
   final Hour? hour;
@@ -17,7 +17,7 @@ class HourlyForecastItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isSelected =
-        context.read<WeatherDetailsCubit>().showWeatherData == hour;
+        context.read<WeatherDetailsBloc>().showWeatherData == hour;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 2.0),
       padding: EdgeInsets.symmetric(horizontal: 12.w),
@@ -58,7 +58,9 @@ class HourlyForecastItem extends StatelessWidget {
         ],
       ),
     ).onTap(() {
-      context.read<WeatherDetailsCubit>().showHourlyForecastDetails(hour);
+      context
+          .read<WeatherDetailsBloc>()
+          .add(ShowHourlyForecastDetailsEvent(hour: hour));
     });
   }
 }
