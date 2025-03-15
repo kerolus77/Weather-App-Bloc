@@ -71,10 +71,10 @@ This app leverages several powerful packages:
    ```
 
 ## Demo Video
-[Watch the demo](#) (Replace with actual video link)
+[Watch the demo](#)
 
 ## Download APK
-[Download APK](#) (Replace with actual APK link)
+[Download APK](https://drive.google.com/file/d/1twzblN6LaTEYpsW-o0DwTlOESSYCvuzy/view?usp=sharing)
 
 ## Contributions
 Contributions are welcome! Feel free to fork the repository and submit a pull request.
